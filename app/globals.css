@@ -26,6 +26,53 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glow {
+  position: fixed;
+  z-index: 1;
+  height: 300px;
+  width: 300px;
+  filter: blur(179px);
+  will-change: transform;
+  animation: glow-pulse 3s infinite, float 10s infinite linear alternate,
+    rotate 6s infinite linear;
+  transform: translate();
+}
+
+@keyframes glow-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+.container {
+  z-index: 5;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  background: url("/cover.jpg") no-repeat center center;
+  background-size: cover;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
